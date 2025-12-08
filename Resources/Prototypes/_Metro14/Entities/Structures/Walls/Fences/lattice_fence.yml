@@ -2,8 +2,8 @@
   parent: BaseStructure
   id: M14BaseLatticeFence
   abstract: true
-  name: lattice fence
-  description: Lattice fence. These types of fences were used in prisons.
+  name: решётчатый забор
+  description: Решётчатый забор. Такие заборы использовались в тюрьмах.
   components:
   - type: MeleeSound
     soundGroups:
@@ -38,7 +38,7 @@
 - type: entity
   parent: M14BaseLatticeFence
   id: M14LatticeFenceStraight
-  suffix: Straight
+  suffix: Прямой
   components:
   - type: Icon
     sprite: _Metro14/Structures/Walls/Fences/lattice_fence.rsi
@@ -62,7 +62,9 @@
 - type: entity
   parent: M14BaseLatticeFence
   id: M14LatticeFenceStraightRust
-  suffix: Straight
+  name: ржавый решётчатый забор
+  description: Решетчатый забор. Такие заборы использовались в тюрьмах. Только этот ржавый.
+  suffix: Прямой
   components:
   - type: Icon
     sprite: _Metro14/Structures/Walls/Fences/lattice_fence.rsi

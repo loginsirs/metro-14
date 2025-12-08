@@ -1,13 +1,9 @@
-# Base
-
-# uses "icon" and "icon-open" states for the main item.
-# trash prototypes use "trash" state
 - type: entity
   abstract: true
   parent: [FoodBase, FoodOpenableBase]
   id: M14FoodTinBase
-  name: tin
-  description: A tin of something, sealed tight.
+  name: консервная банка
+  description: Консервная банка с чем-то, плотно закрыта.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -22,7 +18,6 @@
       path: /Audio/Items/can_open3.ogg
   - type: Destructible
     thresholds:
-    # if tinned food is nuked just delete it, no sound
     - trigger:
         !type:DamageTrigger
         damage: 50
@@ -55,8 +50,9 @@
   abstract: true
   parent: BaseItem
   id: M14FoodTinBaseTrash
-  name: empty tin
-  description: An empty tin. Could get a bit of metal from this.
+  name: пустая консерва
+  description: Пустая консервная банка. Из неё можно получить немного металла.
+  suffix: Мусор
   components:
   - type: Sprite
     state: trash
@@ -71,17 +67,14 @@
     tags:
     - Trash
 
-# Tins
-
 - type: entity
   parent: M14FoodTinBase
   id: M14FoodTinCucumber
-  name: tinned cucumbers
-  description: tinned cucumbers. Old, very old cucumbers. Surprisingly, they're still edible.
+  name: консервированные огурцы
+  description: Консервированные огурцы. Старые, очень старые огурцы. Удивительно, но они все еще съедобны.
   components:
   - type: Sprite
     sprite: _Metro14/Objects/Consumable/Food/cucumber.rsi
-  # the convenient pull tab
   - type: SolutionContainerManager
     solutions:
       food:
@@ -100,22 +93,18 @@
 - type: entity
   parent: M14FoodTinBaseTrash
   id: M14FoodTinCucumberTrash
-  name: tinned cucumbers
   components:
   - type: Sprite
     sprite: _Metro14/Objects/Consumable/Food/cucumber.rsi
 
-#
-
 - type: entity
   parent: M14FoodTinBase
   id: M14FoodTinGenericCan
-  name: tinned generic can
-  description: An old tin can. The label has long since fallen off, so you don't know what's inside. Is it safe to eat?
+  name: консервная банка
+  description: Старая консервная банка. Этикетка давно стёрлась, поэтому вы не знаете, что внутри. Можно ли это есть?
   components:
   - type: Sprite
     sprite: _Metro14/Objects/Consumable/Food/generic_can.rsi
-  # the convenient pull tab
   - type: SolutionContainerManager
     solutions:
       food:
@@ -139,22 +128,18 @@
 - type: entity
   parent: M14FoodTinBaseTrash
   id: M14FoodTinGenericCanTrash
-  name: tinned generic can
   components:
   - type: Sprite
     sprite: _Metro14/Objects/Consumable/Food/generic_can.rsi
 
-#
-
 - type: entity
   parent: M14FoodTinBase
   id: M14FoodTinPea
-  name: tinned pea
-  description: tinned pea. Old, very old pea. Surprisingly, they're still edible.
+  name: консервированные бобы
+  description: Консервированные бобы. Старые, очень старые бобы. Удивительно, но они все еще съедобны.
   components:
   - type: Sprite
     sprite: _Metro14/Objects/Consumable/Food/pea.rsi
-  # the convenient pull tab
   - type: SolutionContainerManager
     solutions:
       food:
@@ -173,22 +158,18 @@
 - type: entity
   parent: M14FoodTinBaseTrash
   id: M14FoodTinPeaTrash
-  name: tinned pea
   components:
   - type: Sprite
     sprite: _Metro14/Objects/Consumable/Food/pea.rsi
-  
-#
 
 - type: entity
   parent: M14FoodTinBase
   id: M14FoodTinPorknbean
-  name: tinned porknbean
-  description: tinned porknbean. Old, very old porknbean. Surprisingly, they're still edible.
+  name: консервированная свинина с фасолью
+  description: Консервированная свинина с фасолью. Старая, очень старая свинина с фасолью. Удивительно, но она все еще съедобна.
   components:
   - type: Sprite
     sprite: _Metro14/Objects/Consumable/Food/porknbean.rsi
-  # the convenient pull tab
   - type: SolutionContainerManager
     solutions:
       food:
@@ -209,22 +190,18 @@
 - type: entity
   parent: M14FoodTinBaseTrash
   id: M14FoodTinPorknbeanTrash
-  name: tinned porknbean
   components:
   - type: Sprite
     sprite: _Metro14/Objects/Consumable/Food/porknbean.rsi
 
-#
-
 - type: entity
   parent: M14FoodTinBase
   id: M14FoodTinSaury
-  name: tinned saury
-  description: tinned saury. Old, very old saury. Surprisingly, they're still edible.
+  name: консервированная сайра
+  description: Консервированная сайра. Старая, очень старая сайра. Удивительно, но она все еще съедобна.
   components:
   - type: Sprite
     sprite: _Metro14/Objects/Consumable/Food/seafood.rsi
-  # the convenient pull tab
   - type: SolutionContainerManager
     solutions:
       food:
@@ -240,12 +217,11 @@
     openableByHand: true
   - type: Edible
     trash:
-    - FoodTinSauryTrash
+    - M14FoodTinSauryTrash
 
 - type: entity
   parent: M14FoodTinBaseTrash
   id: M14FoodTinSauryTrash
-  name: tinned saury
   components:
   - type: Sprite
     sprite: _Metro14/Objects/Consumable/Food/seafood.rsi

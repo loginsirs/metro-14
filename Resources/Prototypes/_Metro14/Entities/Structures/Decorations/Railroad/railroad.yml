@@ -1,7 +1,9 @@
 ﻿- type: entity
   id: M14RailRoad
-  name: rail
-  description: Lol Kek Cheburek )
+  name: рельсы
+  description: Железная дорога по которой раньше ходили вагоны метро. Сейчас она используются для поездок на дрезинах.
+  placement:
+    mode: SnapgridCenter
   components:
   - type: StepTrigger
     requiredTriggeredSpeed: 0
@@ -19,6 +21,12 @@
     state: icon
   - type: Physics
     bodyType: Static
+    canCollide: false
   - type: Tag
     tags:
       - HideContextMenu
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb {}

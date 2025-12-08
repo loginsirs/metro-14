@@ -1,13 +1,9 @@
 ﻿- type: entity
   parent: BaseStructure
   id: M14SubwayCarCabin
-  name: subway car cabin
-  description: The cabin of the subway train driver. It is from here that you can control the train. More accurately.. They could have...
+  name: кабина машиниста поезда
+  description: Кабина водителя состава метро. Именно отсюда вы можете управлять составом. Точнее.. могли...
   components:
-  - type: Anchorable
-    flags:
-    - Anchorable
-  - type: Rotatable
   - type: RangedDamageSound
     soundGroups:
       Brute:
@@ -17,43 +13,63 @@
       Heat:
         collection:
           MetalLaserImpact
-  - type: IsRoof
   - type: Sprite
     sprite: _Metro14/Structures/Railroad/train.rsi
     state: cabin
-  - type: Physics
-    bodyType: Static
-  - type: RadiationBlocker
-    resistance: 3
-  - type: BlockWeather
-  - type: SunShadowCast
+    drawdepth: Mobs
+  - type: SpriteFade
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.4,-0.7,1.4,0.7"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
 
 - type: entity
   parent: BaseStructure
-  id: M14SubwayCar
-  name: subway car
-  description: The subway car in witch passengers used to be transported under a multi-meter layer of earth.
+  id: M14BaseSubwayCar
+  name: вагон поезда
+  description: Вагон поезда, в котором раньше перевозили людей под многометровым слоем земли.
+  abstract: true
   components:
   - type: Sprite
     sprite: _Metro14/Structures/Railroad/train.rsi
+    drawdepth: Mobs
+  - type: SpriteFade
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.4,-0.7,1.4,0.7"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: M14BaseSubwayCar
+  id: M14SubwayCar
+  components:
+  - type: Sprite
     state: train
 
 - type: entity
-  parent: BaseStructure
+  parent: M14BaseSubwayCar
   id: M14SubwayCar1
-  name: subway car
-  description: The subway car in witch passengers used to be transported under a multi-meter layer of earth.
   components:
   - type: Sprite
-    sprite: _Metro14/Structures/Railroad/train.rsi
     state: train1
 
 - type: entity
-  parent: BaseStructure
+  parent: M14BaseSubwayCar
   id: M14SubwayCar2
-  name: subway car
-  description: The subway car in witch passengers used to be transported under a multi-meter layer of earth.
   components:
   - type: Sprite
-    sprite: _Metro14/Structures/Railroad/train.rsi
     state: train2

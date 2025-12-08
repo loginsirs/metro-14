@@ -21,8 +21,8 @@
 - type: entity
   parent: M14BasePassport
   id: M14HansaPassport
-  name: hansa passport
-  description: A Hansa citizen's ID. Without it, you won't be allowed to enter this country.
+  name: паспорт гражданина Ганзы
+  description: Удостоверение гражданина Ганзы. Без него вас не пустят на территорию этого государства.
   components:
   - type: Sprite
     sprite: _Metro14/Objects/Misc/hansa_passport.rsi

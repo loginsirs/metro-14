@@ -40,14 +40,12 @@
   - type: ExaminableSolution
     solution: tank
 
-# Radiation Barrel
-
 - type: entity
-  id: M14RadiationWasteBarrelFull
-  name: radiation fluid barrel
-  description: Don't go near her!
   parent: M14BaseBarrelChem
-  suffix: Full
+  id: M14RadiationWasteBarrelFull
+  name: бочка с радиактивными отходами
+  description: Не приближайся к ней!
+  suffix: Полная
   components:
   - type: Sprite
     sprite: _Metro14/Structures/Barrels/radiation.rsi
@@ -62,11 +60,11 @@
           Quantity: 500
 
 - type: entity
-  id: M14RadiationWasteBrokenBarrel
-  name: Radiation Fluid Barrel Broken
-  description: Don't get close to her! Unable to contain the liquid.
   parent: M14BaseBarrelChem
-  suffix: Broken
+  id: M14RadiationWasteBrokenBarrel
+  name: дырявая бочка с радиактивными отходами
+  description: Не приближайся к ней! Не в состоянии хранить жидность.
+  suffix: Сломана
   components:
   - type: Sprite
     sprite: _Metro14/Structures/Barrels/radiation_broken.rsi
@@ -80,14 +78,12 @@
         - ReagentId: M14RadiationWaste
           Quantity: 200
 
-# Oil Barrel
-
 - type: entity
-  id: M14WeldingFuelBarrelFull
-  name: Oil Barrel
-  description: A barrel of fuel inside. Explosive.
   parent: M14BaseBarrelChem
-  suffix: Full
+  id: M14WeldingFuelBarrelFull
+  name: бочка с топливом
+  description: Бочка с топливом внутри. Взрывоопасна.
+  suffix: Полная
   components:
   - type: Sprite
     sprite: _Metro14/Structures/Barrels/explosive.rsi
@@ -102,17 +98,15 @@
     explosionType: Default
     totalIntensity: 120
 
-# Bio barrel
-
 - type: entity
-  id: M14ToxinFluidBarrelFull
-  name: Bio Barrel
-  description: A barrel with toxins inside. I advise you not to drink this...
   parent: M14BaseBarrelChem
-  suffix: Full
+  id: M14ToxinFluidBarrelFull
+  name: бочка с токсичными веществами
+  description: Бочка с токсинами внутри. Советую вам не пить это...
+  suffix: Полная
   components:
   - type: Sprite
-    sprite: _Metro14/Structures/Barrels/base.rsi
+    sprite: _Metro14/Structures/Barrels/green.rsi
     state: icon
   - type: SolutionContainerManager
     solutions:
@@ -121,13 +115,33 @@
         - ReagentId: Toxin
           Quantity: 500
 
-# Barrel
-
 - type: entity
   parent: CrateGenericSteel
+  id: M14Barrel
+  name: бочка
+  description: Обычная бочка. Вы можете хранить предметы в ней.
+  components:
+  - type: Icon
+    state: icon
+  - type: Sprite
+    sprite: _Metro14/Structures/Barrels/Storage/rusted.rsi
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.18,-0.48,0.18,0.28"
+        density: 200
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: M14Barrel
   id: M14BarrelBlue
-  name: blue barrel
-  description: You can store all sorts of items here, just like in a drawer.
+  name: синяя бочка
+  description: Обычная бочка. Вы можете хранить предметы в ней.
   components:
   - type: Icon
     state: icon
@@ -135,10 +149,10 @@
     sprite: _Metro14/Structures/Barrels/Storage/blue.rsi
 
 - type: entity
-  parent: CrateGenericSteel
+  parent: M14Barrel
   id: M14BarrelYellow
-  name: yellow barrel
-  description: You can store all sorts of items here, just like in a drawer.
+  name: жёлтая бочка
+  description: Обычная бочка. Вы можете хранить предметы в ней.
   components:
   - type: Icon
     state: icon
@@ -146,23 +160,10 @@
     sprite: _Metro14/Structures/Barrels/Storage/yellow.rsi
 
 - type: entity
-  parent: CrateGenericSteel
-  id: M14Barrel
-  name: barrel
-  description: You can store all sorts of items here, just like in a drawer.
-  components:
-  - type: Icon
-    state: icon
-  - type: Sprite
-    sprite: _Metro14/Structures/Barrels/Storage/rusted.rsi
-
-# Fire barrel
-
-- type: entity
-  id: M14Firebarrel
   parent: BaseStructure
-  name: barrel-bonfire
-  description: A barrel with burning trash inside, so you can sit next to it and warm up.
+  id: M14Firebarrel
+  name: бочка-костёр
+  description: Бочка с подожженным мусором внутри, для того чтобы присесть рядом с ней и погреться.
   components:
   - type: Sprite
     noRot: true
@@ -188,3 +189,14 @@
     sound:
       path: /Audio/Ambience/Objects/fireplace.ogg
   - type: AlwaysHot
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.18,-0.48,0.18,0.28"
+        density: 200
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer

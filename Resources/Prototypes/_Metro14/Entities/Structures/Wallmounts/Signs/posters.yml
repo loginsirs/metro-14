@@ -3,23 +3,40 @@
   id: M14PosterBase
   abstract: true
   components:
-  - type: WallMount
-    arc: 360
   - type: Sprite
-    drawdepth: WallMountedItems
     sprite: _Metro14/Structures/Wallmounts/posters.rsi
-    snapCardinals: true
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Card
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 5
+        damage: 50
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           path: /Audio/Effects/poster_broken.ogg
       - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+        acts: [Destruction]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/poster_broken.ogg
+      - !type:DoActsBehavior
+        acts: [ Destruction ]
       - !type:SpawnEntitiesBehavior
         spawn:
           PosterBroken:
@@ -30,8 +47,8 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterBazar
-  name: "No swag, no bazaar"
-  description: It looks like this poster wants to shake a lot of bullets out of you.
+  name: плакат "Нет Хабара, нет базара"
+  description: Похоже, этот плакат хочет вытрясти из тебя побольше пуль.
   components:
   - type: Sprite
     state: bazar
@@ -39,8 +56,8 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterClearSky
-  name: "Clear Sky"
-  description: An agitation poster calling for the removal of dust clouds and nuclear dust from the sky. It is unclear how they plan to do this...
+  name: плакат "Миру Чистое Небо"
+  description: Агитационный плакат, призывающий очистить небо от ядерной пыли. Неясно, как они планируют это сделать...
   components:
   - type: Sprite
     state: clearsky
@@ -48,8 +65,8 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterDirtySky
-  name: "Dirty Sky"
-  description: The opposite of the "World Clean Sky" poster. This poster describes how the world has come to an end and there is no point in cleaning it.
+  name: плакат "Миру Грязное Небо"
+  description: Противоположность плакату Миру Чистое Небо. Этот плакат описывает, что миру пришел конец и очищать небо не имеет никакого смысла.
   components:
   - type: Sprite
     state: dirtysky
@@ -57,8 +74,8 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterFreebies
-  name: "Freebies"
-  description: Freebie! Do people still like freebies?
+  name: плакат "Халява"
+  description: Халява! Все же любят халяву?
   components:
   - type: Sprite
     state: freebies
@@ -66,8 +83,8 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterCoolMan
-  name: "cool man"
-  description: He's a tough guy. We'll all look up to him sooner or later.
+  name: плакат "крутой мужик"
+  description: Крутой чувак. Мы все рано или поздно будем равняться на него.
   components:
   - type: Sprite
     state: gay
@@ -75,8 +92,8 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterNiceMan
-  name: "Pumped-up man"
-  description: Well, it's clear. The guy works out a lot.
+  name: плакат "накаченный мужик"
+  description: Ну тут всё понятно. Чувак много качаеся.
   components:
   - type: Sprite
     state: gigachad
@@ -84,8 +101,8 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterGun
-  name: "Hide to gun"
-  description: The poster urges people to hide their weapons and not show them off. These posters are usually placed in train stations.
+  name: плакат "Не свети валыной"
+  description: Плакат призывает людей спрятать оружие и не выставлять его напоказ. Такие плакаты обычно размещают на железнодорожных станциях.
   components:
   - type: Sprite
     state: gun
@@ -93,7 +110,7 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterIcon
-  name: "Icon"
+  name: икона
   description: 
   components:
   - type: Sprite
@@ -102,7 +119,7 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterIcon1
-  name: "Icon"
+  name: икона
   description: 
   components:
   - type: Sprite
@@ -111,8 +128,8 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterLenin
-  name: "Lenin"
-  description: The poster shows... Lenin!
+  name: портрет Ленина
+  description: На портрете изображён... Ленин!
   components:
   - type: Sprite
     state: lenin
@@ -120,8 +137,8 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterMap
-  name: "Map"
-  description: A map of the surface that the stalkers created based on their trips to the surface.
+  name: карта
+  description: Карта поверхности, которую составили сталкера, исходя из своих вылазок.
   components:
   - type: Sprite
     state: map
@@ -129,8 +146,8 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterMed
-  name: "Medical poster"
-  description: Medical poster. This shows a human hand.
+  name: медицинский плакат
+  description: Медицинский плакат. На нём изображена человеческая рука.
   components:
   - type: Sprite
     state: med1
@@ -138,8 +155,8 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterMed1
-  name: "Medical poster"
-  description: A medical poster. Here it is. Some kind of organ.
+  name: медицинский плакат
+  description: Медицинский плакат. На нём изображён какой-то орган.
   components:
   - type: Sprite
     state: med2
@@ -147,8 +164,8 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterMed2
-  name: "Medical poster"
-  description: A medical poster. Here is a human heart in all its glory!
+  name: медицинский плакат
+  description: Медицинский плакат. На нём изображено человеческое сердце во всей красе!
   components:
   - type: Sprite
     state: med3
@@ -156,8 +173,8 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterMed3
-  name: "Medical poster"
-  description: Medical poster. It shows human bones and more.
+  name: медицинский плакат
+  description: Медицинский плакат. На нём изображены человеческие кости и многое другое.
   components:
   - type: Sprite
     state: med4
@@ -165,8 +182,8 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterMed4
-  name: "Medical poster"
-  description: A medical poster. Here is the brain in all its glory!
+  name: медицинский плакат
+  description: Медицинский плакат. На нём изображён мозг во всей его красе!
   components:
   - type: Sprite
     state: med5
@@ -174,8 +191,8 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterMed5
-  name: "Wash hands. dont hurt"
-  description: The poster calls for washing your hands more often.
+  name: плакат "Руки мой. Не болей"
+  description: Плакат призывает чаще мыть руки.
   components:
   - type: Sprite
     state: med6
@@ -183,8 +200,8 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterNotSay
-  name: "Not say"
-  description: The poster told you to shut up. If you don't shut up, he'll endure it.
+  name: плакат "Не болтай"
+  description: На плакате написано, чтобы ты заткнулся. Если не заткнёшься, он стерпит.
   components:
   - type: Sprite
     state: notsay
@@ -192,8 +209,8 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterRadiation
-  name: "Radiation"
-  description: A sign urging you to stay away from this area due to the high levels of radiation.
+  name: плакат "Радиация!"
+  description: Плакат, призывающий вас держаться подальше от этого места из-за высокого уровня радиации.
   components:
   - type: Sprite
     state: radiation
@@ -201,8 +218,8 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterRadiation1
-  name: "Radiation"
-  description: A sign urging you to stay away from this area due to the high levels of radiation.
+  name: плакат "Радиация!"
+  description: Плакат, призывающий вас держаться подальше от этого места из-за высокого уровня радиации.
   components:
   - type: Sprite
     state: radiation2
@@ -210,8 +227,8 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterRecruiting
-  name: "Recruiting"
-  description: The poster is about the recruitment of the Red Line Army. They promise big payouts and an honorable pension.
+  name: плакат "Набор"
+  description: Плакат рассказывает о наборе в армию "Красной Линии". Они обещают большие выплаты и почётную пенсию.
   components:
   - type: Sprite
     state: recruiting
@@ -219,44 +236,27 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterRedline
-  name: "Redline"
-  description: It's like a flag with the Red Line's symbolism on it.
+  name: плакат "Красная Линия"
+  description: Плакат с символикой "Красной Линии".
   components:
   - type: Sprite
     state: redline1
 
 - type: entity
   parent: M14PosterBase
-  id: M14PosterRedline1
-  name: "Redline"
-  description: Poster with the Red Line symbolism.
+  id: M14PosterRedline2
+  name: плакат "Красная Линия"
+  description: Плакат с символикой "Красной Линии".
+  suffix: Порванный
   components:
   - type: Sprite
     state: redline2
 
 - type: entity
   parent: M14PosterBase
-  id: M14PosterRedline2
-  name: "Redline"
-  description: Poster with the Red Line symbolism.
-  components:
-  - type: Sprite
-    state: redline3
-
-- type: entity
-  parent: M14PosterBase
-  id: M14PosterHydra
-  name: "Hydra"
-  description: It's like a flag with the symbolism of the Fourth Hydra.
-  components:
-  - type: Sprite
-    state: reich
-
-- type: entity
-  parent: M14PosterBase
   id: M14PosterRun
-  name: "Run"
-  description: A blood-written message... RUN!!!!!
+  name: надпись на стене "Беги"
+  description: Надпись, нарисованная кровью... БЕГИ!!!
   components:
   - type: Sprite
     state: run
@@ -264,8 +264,8 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterSearch
-  name: "Search"
-  description: Attention! A man known by the pseudonym "Bourbon" is being sought. If you know his whereabouts, please inform the station manager immediately!
+  name: плакат "Розыск"
+  description: Внимание! Разыскивается человек, известный под псевдонимом "Бурбон". Если вам известно его местонахождение, немедленно сообщите об этом начальнику станции!
   components:
   - type: Sprite
     state: search
@@ -273,8 +273,8 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterSearchGun
-  name: "Search gun"
-  description: A poster indicating the loss of a gun. There's even an address left.
+  name: плакат "Поиск"
+  description: Плакат, указывающий на пропажу оружия. На нём даже указан адрес.
   components:
   - type: Sprite
     state: searchgun
@@ -282,8 +282,8 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterStalin
-  name: "Stalin"
-  description: The poster of Stalin
+  name: портрет Сталина
+  description: На портрете изображён... Сталин!
   components:
   - type: Sprite
     state: stalin
@@ -291,8 +291,8 @@
 - type: entity
   parent: M14PosterBase
   id: M14PosterStalker
-  name: "Take care of yourself, stalker"
-  description: A poster urging you to take care of yourself. Good luck, Stalker!
+  name: плакат "Береги себя, Сталкер"
+  description: Плакат, призывающий вас беречь себя. Удачи, Сталкер!
   components:
   - type: Sprite
     state: stalker

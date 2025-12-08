@@ -1,6 +1,7 @@
 - type: entity
   parent: BaseSign
   id: M14BaseFlag
+  name: флаг
   abstract: true
   components:
   - type: WallMount
@@ -10,10 +11,9 @@
     sprite: _Metro14/Structures/Wallmounts/flags.rsi
 
 - type: entity
-  parent: BaseFlag
+  parent: M14BaseFlag
   id: M14Flag
-  name: flag
-  description: This is flag. Yes..
+  description: Это флаг. Да...
   components:
   - type: Sprite
     state: flag

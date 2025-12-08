@@ -1,8 +1,9 @@
 ﻿- type: entity
   parent: M14BarBedWire
   id: M14SharpFenceBroken
-  name: sharp fence broken
-  description: Someone got real mad at an inanimate object.
+  name: порванный забор из колючей проволоки
+  description: Кто-то по-настоящему разозлился на неодушевленный предмет.
+  suffix: Порванный
   components:
   - type: Sprite
     sprite: _Metro14/Structures/Walls/Fences/sharp_fence.rsi
@@ -13,6 +14,9 @@
       map: ["enum.ElectrifiedLayers.Sparks"]
       shader: unshaded
       visible: false
+  - type: Icon
+    sprite: _Metro14/Structures/Walls/Fences/sharp_fence.rsi
+    state: icon_broken
   - type: Physics
     canCollide: false
   - type: Fixtures
@@ -60,8 +64,8 @@
 - type: entity
   parent: M14BarBedWire
   id: M14SharpFenceStraight
-  name: sharp fence
-  suffix: Straight
+  name: забор из колючей проволоки
+  suffix: Прямой
   components:
   - type: Icon
     sprite: _Metro14/Structures/Walls/Fences/sharp_fence.rsi
@@ -123,8 +127,8 @@
 - type: entity
   parent: M14BarBedWire
   id: M14SharpFenceCorner
-  name: sharp fence
-  suffix: Corner
+  name: забор из колючей проволоки
+  suffix: Угол
   components:
   - type: Sprite
     sprite: _Metro14/Structures/Walls/Fences/sharp_fence.rsi
@@ -137,7 +141,6 @@
       visible: false
   - type: Fixtures
     fixtures:
-      # needs two shapes to properly handle a triangle corner without weirdness
       fix1:
         shape:
           !type:PhysShapeAabb
@@ -169,7 +172,8 @@
 - type: entity
   parent: M14BarBedWire
   id: M14SharpFenceEnd
-  suffix: End
+  name: забор из колючей проволоки
+  suffix: Конец
   components:
   - type: Icon
     sprite: _Metro14/Structures/Walls/Fences/sharp_fence.rsi

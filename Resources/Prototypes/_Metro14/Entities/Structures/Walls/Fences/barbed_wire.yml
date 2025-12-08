@@ -1,8 +1,8 @@
 ﻿- type: entity
   parent: BaseStructure
   id: M14BarBedWire
-  name: barbed wire
-  description: It will be extremely difficult to get through it.
+  name: колючая проволока
+  description: Пройти через это будет чрезвычайно трудно.
   abstract: true
   components:
   - type: MeleeSound
@@ -83,8 +83,9 @@
 - type: entity
   parent: M14BarBedWire
   id: M14BarBedWireBroken
-  name: broken barbed wire
-  description: Someone got real mad at an inanimate object.
+  name: порваная колючая проволока
+  description: Кто-то по-настоящему разозлился на неодушевленный предмет.
+  suffix: Порванная
   components:
   - type: Sprite
     layers:
@@ -141,7 +142,7 @@
 - type: entity
   parent: M14BarBedWire
   id: M14BarBedWireStraight
-  suffix: Straight
+  suffix: Прямая
   components:
   - type: Icon
     sprite: _Metro14/Structures/Walls/Fences/barbed_wire.rsi
@@ -202,7 +203,7 @@
 - type: entity
   parent: M14BarBedWire
   id: M14BarBedWireEnd
-  suffix: End
+  suffix: Конец
   components:
   - type: Icon
     sprite: _Metro14/Structures/Walls/Fences/barbed_wire.rsi
