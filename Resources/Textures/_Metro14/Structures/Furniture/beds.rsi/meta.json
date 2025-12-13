@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/stalker14-project/stalker-14",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "mattress0"
+    },
+    {
+      "name": "mattress1"
+    },
+    {
+      "name": "bed0"
+    },
+    {
+      "name": "bed1"
+    }
+  ]
+}

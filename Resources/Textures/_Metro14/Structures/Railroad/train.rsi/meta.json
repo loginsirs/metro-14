@@ -1,0 +1,27 @@
+{
+    "version":1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from https://github.com/stalker14-project/stalker-14",
+    "size": {
+      "x": 96,
+      "y": 96
+    },
+    "states": [
+        {
+            "name":"cabin",
+            "directions":4
+        },
+        {
+            "name":"train",
+            "directions":4
+        },
+        {
+            "name":"train1",
+            "directions":4
+        },
+        {
+            "name":"train2",
+            "directions":4
+        }
+    ]
+}
