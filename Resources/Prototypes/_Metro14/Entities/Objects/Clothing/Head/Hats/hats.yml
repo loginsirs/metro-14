@@ -5,7 +5,7 @@
   description: "Тёплая меховая шапка - самый популярный головной убор среди мужчин и женщин, стариков и детей."
   components:
   - type: Clothing
-    sprite: _Metro14/Objects/Clothing/Head/Hats/ushanka_browwn.rsi
+    sprite: _Metro14/Objects/Clothing/Head/Hats/ushanka_brown.rsi
   - type: Appearance
   - type: AddAccentClothing
     accent: RussianAccent
