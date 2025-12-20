@@ -1,6 +1,6 @@
 - type: entity
   parent: MarkerBase
-  id: 14MSpawnMobNosach
+  id: M14SpawnMobNosach
   name: спавнер носачей
   components:
   - type: Sprite
@@ -15,7 +15,7 @@
 
 - type: entity
   parent: MarkerBase
-  id: 14MSpawnMobSpider
+  id: M14SpawnMobSpider
   name: спавнер пауков
   suffix: муж паук
   components:
@@ -31,7 +31,7 @@
 
 - type: entity
   parent: MarkerBase
-  id: 14MSpawnMobWomanSpider
+  id: M14SpawnMobWomanSpider
   name: спавнер пауков
   suffix: жен паук
   components:
